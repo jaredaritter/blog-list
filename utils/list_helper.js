@@ -11,6 +11,20 @@ const totalLikes = (blogs) => {
   // return blogs.reduce(reducer, 0);
 };
 
-const favoriteBlog = (blogs) => {};
+const favoriteBlog = (blogs) => {
+  // RETURN BLOG WITH MOST LIKES *OR THE FIRST ONE WITH MOST LIKES
+  // SHOULD BE ABLE TO USE SORT
+  // A-B = ASCENDING, B-A = DESCENDING
+  // const descending = blogs.sort((a, b) => b.likes - a.likes);
+  // // console.log(descending);
+  // const favorite = descending[0];
+  // // console.log(favorite);
+  // return favorite ? favorite : 'no blogs';
+
+  // SHORTENED VERSION
+  return blogs.length === 0
+    ? 'no blogs'
+    : blogs.sort((a, b) => b.likes - a.likes)[0];
+};
 
 module.exports = { dummy, totalLikes, favoriteBlog };
