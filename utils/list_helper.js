@@ -22,9 +22,18 @@ const favoriteBlog = (blogs) => {
   // return favorite ? favorite : 'no blogs';
 
   // SHORTENED VERSION
-  return blogs.length === 0
-    ? 'no blogs'
-    : blogs.sort((a, b) => b.likes - a.likes)[0];
+  const favorite = blogs.sort((a, b) => b.likes - a.likes)[0];
+  if (blogs.length === 0) {
+    return 'no blogs';
+  } else {
+    const { title, author, likes } = favorite;
+    const condensedFavorite = {
+      title,
+      author,
+      likes,
+    };
+    return condensedFavorite;
+  }
 };
 
 module.exports = { dummy, totalLikes, favoriteBlog };
